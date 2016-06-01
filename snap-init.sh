@@ -9,9 +9,9 @@ INITIALIZATION_FILE="$ANDROID_HOME/.initialized-dependencies-ndk-$(git log -n 1 
 
 
 echo "android home:"
-ls ${ANDROID_HOME}
+ls -lah ${ANDROID_HOME}
 echo "snap cache dir:"
-${SNAP_CACHE_DIR}
+ls -lah ${SNAP_CACHE_DIR}
 if [ ! -e ${INITIALIZATION_FILE} ]; then
 
     if [ -d ${SNAP_CACHE_DIR}/.androidy ]; then
@@ -42,9 +42,9 @@ if [ ! -e ${INITIALIZATION_FILE} ]; then
         echo y | android update sdk --no-ui --filter sys-img-armeabi-v7a-android-23 --all > /dev/null
     
       echo "android home:"
-      ls ${ANDROID_HOME}
+      ls -lah ${ANDROID_HOME}
       echo "snap cache dir:"
-      ${SNAP_CACHE_DIR}
+      la -lah ${SNAP_CACHE_DIR}
       cp -r ${ANDROID_HOME}/.android ${SNAP_CACHE_DIR}/
     fi
     
