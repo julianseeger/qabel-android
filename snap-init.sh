@@ -42,5 +42,8 @@ if [ ! -e ${INITIALIZATION_FILE} ]; then
 fi
 
 if [ -d ${SNAP_CACHE_DIR}/.gradle ]; then
+  if [ -d ~/.gradle ]; then
+    rm -rf ~/.gradle
+  fi
   cp -r ${SNAP_CACHE_DIR}/.gradle ~/.gradle
 fi
