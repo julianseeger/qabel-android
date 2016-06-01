@@ -41,14 +41,14 @@ if [ ! -e ${INITIALIZATION_FILE} ]; then
     
     if [ ! -d ~/android-ndk-r11c ]; then
         if [ -d ${SNAP_CACHE_DIR}/android-ndk-r11c ]; then
-            if [ "${SNAP_CACHE_DIR}" -ne "${HOME}" ]; then
+            if [ "${SNAP_CACHE_DIR}" != "${HOME}" ]; then
                 cp -r ${SNAP_CACHE_DIR}/android-ndk-r11c ~/android-ndk-r11c
             fi
         else
             wget http://dl.google.com/android/repository/android-ndk-r11c-linux-x86_64.zip -O ndk.zip
             unzip -q ndk.zip
             mv android-ndk-r11c ~/android-ndk-r11c
-            if [ "${SNAP_CACHE_DIR}" -ne "${HOME}" ]; then
+            if [ "${SNAP_CACHE_DIR}" != "${HOME}" ]; then
                 cp -r ~/android-ndk-r11c ${SNAP_CACHE_DIR}/android-ndk-r11c
             fi
         fi
