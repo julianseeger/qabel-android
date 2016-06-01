@@ -39,7 +39,7 @@ if [ ! -e ${INITIALIZATION_FILE} ]; then
       cp -r ${ANDROID_HOME}/.android ${SNAP_CACHE_DIR}/
     fi
     
-    if [ ! -d /opt/android-ndk-r11c]; then
+    if [ ! -d /opt/android-ndk-r11c ]; then
         if [ -d ${SNAP_CACHE_DIR}/android-ndk-r11c ]; then
             cp -r ${SNAP_CACHE_DIR}/android-ndk-r11c /opt/android-ndk-r11c
         else
