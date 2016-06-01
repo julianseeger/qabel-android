@@ -8,9 +8,6 @@ set -x
 INITIALIZATION_FILE="$ANDROID_HOME/.initialized-dependencies-$(git log -n 1 --format=%h -- $0)"
 
 if [ ! -e ${INITIALIZATION_FILE} ]; then
-  if [ -d ${SNAP_CACHE_DIR}/.android ]; then
-    cp -r ${SNAP_CACHE_DIR}/.android ${ANDROID_HOME}/.android
-  else
 
     # fetch and initialize $ANDROID_HOME
     download-android
@@ -35,8 +32,6 @@ if [ ! -e ${INITIALIZATION_FILE} ]; then
   
     # Specify at least one system image if you want to run emulator tests
     echo y | android update sdk --no-ui --filter sys-img-armeabi-v7a-android-23 --all > /dev/null
-    
-    cp -r ${ANDROID_HOME}/.android ${SNAP_CACHE_DIR}/.android
-  fi  
+
   touch ${INITIALIZATION_FILE}
 fi
