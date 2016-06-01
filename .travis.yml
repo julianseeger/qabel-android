@@ -18,4 +18,4 @@ android:
     - sys-img-x86-android-23
   
 script:
-  - gradlew clean spoon
+  - ./gradlew --daemon clean spoon
