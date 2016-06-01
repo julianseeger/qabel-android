@@ -19,7 +19,7 @@ if [ ! -e ${INITIALIZATION_FILE} ]; then
         echo y | android update sdk --no-ui --filter tool > /dev/null
       
         # The BuildTools version used by your project
-        echo y | android update sdk --no-ui --filter build-tools-23.0.3 --all > /dev/null
+        echo y | android update sdk --no-ui --filter build-tools-23.0.1 --all > /dev/null
       
         # The SDK version used to compile your project
         echo y | android update sdk --no-ui --filter android-23 > /dev/null
