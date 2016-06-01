@@ -9,7 +9,7 @@ INITIALIZATION_FILE="$ANDROID_HOME/.initialized-dependencies-ndk-$(git log -n 1 
 
 if [ ! -e ${INITIALIZATION_FILE} ]; then
 
-    if [ -d ${SNAP_CACHE_DIR}/.android ]; then
+    if [ -d ${SNAP_CACHE_DIR}/.androidy ]; then
         cp -r ${SNAP_CACHE_DIR}/.android ${ANDROID_HOME}/
     else
         # fetch and initialize $ANDROID_HOME
