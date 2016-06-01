@@ -46,8 +46,8 @@ if [ ! -e ${INITIALIZATION_FILE} ]; then
             fi
         else
             wget http://dl.google.com/android/repository/android-ndk-r11c-linux-x86_64.zip -O ndk.zip
-            unzip ndk.zip
-            cp -r /opt/android-ndk-r11c ${SNAP_CACHE_DIR}/android-ndk-r11c
+            unzip -q ndk.zip
+            cp -r ~/android-ndk-r11c ${SNAP_CACHE_DIR}/android-ndk-r11c
         fi
     fi
     export PATH=${PATH}:~/android-ndk-r11c
