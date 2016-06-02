@@ -15,7 +15,7 @@ fi
 function download_cached {
     url=$1
     target=$2
-    hash=`echo ${url} | sha1sum | cut -f' ' -f1`
+    hash=`echo ${url} | sha1sum | cut -d' ' -f1`
     cacheName=${SNAP_CACHE_DIR}/downloads/${hash}
     if [ -f ${cacheName} ]; then
         cp ${cacheName} ${target}
@@ -26,6 +26,7 @@ function download_cached {
 }
 
 if [ ! -d ${SNAP_CACHE_DIR}/glibc-2.14 ]; then
+    echo "installing glibc-2.14"
     download_cached http://ftp.gnu.org/gnu/glibc/glibc-2.14.tar.gz glibc-2.14.tar.gz
     tar zxvf glibc-2.14.tar.gz
     cd glibc-2.14
@@ -34,6 +35,9 @@ if [ ! -d ${SNAP_CACHE_DIR}/glibc-2.14 ]; then
     ../configure --prefix=${SNAP_CACHE_DIR}/glibc-2.14 > /dev/null
     make -j4 > /dev/null
     sudo make install > /dev/null
+    cd ${WORKDIR}
+else
+    echo "glibc-2.14 already present"
 fi
 export LD_LIBRARY_PATH=${SNAP_CACHE_DIR}/glibc-2.14
 
