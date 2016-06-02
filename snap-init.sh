@@ -39,7 +39,7 @@ if [ ! -d ${SNAP_CACHE_DIR}/glibc-2.14 ]; then
 else
     echo "glibc-2.14 already present"
 fi
-export LD_LIBRARY_PATH=${SNAP_CACHE_DIR}/glibc-2.14
+export LD_LIBRARY_PATH=${SNAP_CACHE_DIR}/glibc-2.14/lib
 
 if [ ! -e ${INITIALIZATION_FILE} ]; then
     # fetch and initialize $ANDROID_HOME
