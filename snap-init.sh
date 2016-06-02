@@ -44,7 +44,7 @@ if [ ! -e ${INITIALIZATION_FILE} ]; then
       echo "android home:"
       ls -lah ${ANDROID_HOME}
       echo "snap cache dir:"
-      la -lah ${SNAP_CACHE_DIR}
+      ls -lah ${SNAP_CACHE_DIR}
       cp -r ${ANDROID_HOME}/.android ${SNAP_CACHE_DIR}/
     fi
     
