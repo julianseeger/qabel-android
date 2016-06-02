@@ -8,15 +8,7 @@ set -x
 INITIALIZATION_FILE="$ANDROID_HOME/.initialized-dependencies-ndk-$(git log -n 1 --format=%h -- $0)"
 
 
-echo "android home:"
-ls -lah ${ANDROID_HOME}
-echo "snap cache dir:"
-ls -lah ${SNAP_CACHE_DIR}
 if [ ! -e ${INITIALIZATION_FILE} ]; then
-
-    if [ -d ${SNAP_CACHE_DIR}/.androidy ]; then
-        cp -r ${SNAP_CACHE_DIR}/.android ${ANDROID_HOME}/
-    else
         # fetch and initialize $ANDROID_HOME
         download-android
         # Use the latest android sdk tools
@@ -40,12 +32,6 @@ if [ ! -e ${INITIALIZATION_FILE} ]; then
       
         # Specify at least one system image if you want to run emulator tests
         echo y | android update sdk --no-ui --filter sys-img-armeabi-v7a-android-23 --all > /dev/null
-    
-      echo "android home:"
-      ls -lah ${ANDROID_HOME}
-      echo "snap cache dir:"
-      ls -lah ${SNAP_CACHE_DIR}
-      cp -r ${ANDROID_HOME}/.android ${SNAP_CACHE_DIR}/
     fi
     
     if [ ! -d ~/android-ndk-r11c ]; then
